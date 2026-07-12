@@ -1,6 +1,7 @@
 import Link from "next/link";
 import FormInput from "@/app/components/FormInput";
 import Button from "@/app/components/Button";
+import Image from "next/image";
 
 export default function SignInPage() {
   return (
@@ -10,7 +11,12 @@ export default function SignInPage() {
     >
       <div className="absolute inset-0 bg-black/60" />
       <nav className="absolute top-0 w-full px-4 md:px-12 py-4">
-        <span className="text-netflixRed text-3xl font-bold">NETFLIX</span>
+        <Image
+          src="/images/movies/Netflix-Brand-logo.png"
+          alt="Netflix"
+          width={120}
+          height={32}
+        />
       </nav>
       <div className="relative z-10 bg-black/75 p-8 md:p-16 rounded w-full max-w-md">
         <h1 className="text-3xl font-bold mb-6">Sign In</h1>
@@ -18,7 +24,9 @@ export default function SignInPage() {
           <FormInput type="text" placeholder="Email or phone number" />
           <FormInput type="password" placeholder="Password" />
           <Link href="/profiles">
-            <Button type="button" className="w-full py-3">Sign In</Button>
+            <Button type="button" className="w-full py-3">
+              Sign In
+            </Button>
           </Link>
         </form>
         <div className="flex justify-between text-sm text-gray-400 mt-4">
@@ -29,7 +37,10 @@ export default function SignInPage() {
         </div>
         <p className="text-gray-400 mt-8">
           New to Netflix?{" "}
-          <Link href="/" className="text-white hover:underline">Sign up now</Link>.
+          <Link href="/" className="text-white hover:underline">
+            Sign up now
+          </Link>
+          .
         </p>
       </div>
     </div>
