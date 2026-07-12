@@ -1,4 +1,4 @@
-import { Movie, Profile } from "@/types";
+import { Movie, Profile } from "@/app/types";
 
 // Generates deterministic placeholder posters via picsum.photos
 const poster = (seed: string) => `https://picsum.photos/seed/${seed}/300/450`;
