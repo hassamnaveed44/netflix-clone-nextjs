@@ -3,9 +3,9 @@
 A responsive frontend clone of Netflix, built as a Figma-to-code implementation using Next.js (App Router) and Tailwind CSS.
 
 ## Live Demo
-- Vercel: <add-your-vercel-url-here>
-- GitHub: <add-your-repo-url-here>
-- Figma: https://www.figma.com/design/B62MJg0szd5Vl9IVA9t5eC/Netflix-Designing-Task
+- Vercel: https://netflix-clone-nextjs-theta.vercel.app/
+- GitHub: https://github.com/hassamnaveed44/netflix-clone-nextjs
+- Figma: https://www.figma.com/design/B62MJg0szd5Vl9IVA9t5eC/Netflix-Designing-Task?node-id=230-84&t=VkrHGMmTGAmPz5fn-0
 
 ## Tech Stack
 - Next.js 16 (App Router)
