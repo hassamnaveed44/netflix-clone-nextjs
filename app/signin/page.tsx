@@ -6,7 +6,7 @@ export default function SignInPage() {
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#141414] to-black
-           bg-[url('/images/backgrounds/signin-bg.jpg')] bg-cover bg-center"
+           bg-[url('/images/background/lp1.jpg')] bg-cover bg-center"
     >
       <div className="absolute inset-0 bg-black/60" />
       <nav className="absolute top-0 w-full px-4 md:px-12 py-4">
