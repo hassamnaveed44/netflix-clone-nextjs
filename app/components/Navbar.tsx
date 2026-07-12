@@ -47,7 +47,7 @@ export default function Navbar() {
       <div className="flex items-center gap-8">
         {/* Logo — always links back to the home/browse page */}
         <Link href="/browse">
-          <Image src="/images/logo/netflix-logo.png" alt="Netflix" width={110} height={30} priority />
+          <Image src="/images/movies/Netflix-Brand-Logo.png" alt="Netflix" width={110} height={30} priority />
         </Link>
 
         {/* Desktop links — hidden below md, shown inline from md upward */}
