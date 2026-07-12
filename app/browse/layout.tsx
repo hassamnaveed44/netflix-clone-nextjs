@@ -1,0 +1,1 @@
+ /* navbar wrapper for all browse screens*/
