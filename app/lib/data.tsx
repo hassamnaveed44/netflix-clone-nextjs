@@ -1,13 +1,10 @@
 import { Movie, Profile } from "@/app/types";
 
-// Generates deterministic placeholder posters via picsum.photos
-const poster = (seed: string) => `https://picsum.photos/seed/${seed}/300/450`;
-
 function makeRow(prefix: string, count: number, genre: string): Movie[] {
   return Array.from({ length: count }, (_, i) => ({
     id: `${prefix}-${i + 1}`,
     title: `${genre} Title ${i + 1}`,
-    posterSeed: `${prefix}${i}`,
+    posterUrl: `/images/movies/${prefix}-${(i % 5) + 1}.jpg`, // cycles through 5 real images per row
     year: 2020 + (i % 5),
     rating: i % 2 === 0 ? "16+" : "13+",
     duration: `${1 + (i % 2)}h ${10 + i}m`,
@@ -25,8 +22,6 @@ export const tvShows = makeRow("tv", 12, "TV Show");
 export const movies = makeRow("mov", 12, "Movie");
 export const newAndPopular = makeRow("new", 10, "New");
 export const myList = [...trending.slice(0, 4), ...action.slice(0, 4)];
-
-export { poster };
 
 export const profiles: Profile[] = [
   { id: "1", name: "Ali", colorSeed: "p1" },

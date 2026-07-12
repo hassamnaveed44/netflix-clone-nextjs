@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { Movie } from "@/app/types";
-import { poster } from "@/app/lib/data";
 
 export default function MovieCard({ movie, onClick }: { movie: Movie; onClick?: () => void }) {
   return (
@@ -11,7 +10,7 @@ export default function MovieCard({ movie, onClick }: { movie: Movie; onClick?: 
                  cursor-pointer transition-transform duration-300 hover:scale-105 hover:z-10 shadow-lg"
     >
       <Image
-        src={poster(movie.posterSeed)}
+        src={movie.posterUrl}
         alt={movie.title}
         fill
         sizes="220px"

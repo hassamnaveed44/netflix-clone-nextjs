@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Movie } from "@/app/types";
-import { poster } from "@/app/lib/data";
 import Button from "./Button";
 
 export default function MovieModal({ movie, onClose }: { movie: Movie; onClose: () => void }) {
@@ -16,7 +15,7 @@ export default function MovieModal({ movie, onClose }: { movie: Movie; onClose: 
         className="bg-netflixDark w-full max-w-2xl rounded-lg overflow-hidden"
       >
         <div className="relative h-80 w-full">
-          <Image src={poster(movie.posterSeed)} alt={movie.title} fill className="object-cover" />
+          <Image src={movie.posterUrl} alt={movie.title} fill className="object-cover" />
           <button
             onClick={onClose}
             className="absolute top-4 right-4 bg-black/70 rounded-full w-9 h-9 flex items-center justify-center"

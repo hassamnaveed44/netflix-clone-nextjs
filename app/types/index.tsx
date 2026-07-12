@@ -1,9 +1,9 @@
 export interface Movie {
   id: string;
   title: string;
-  posterSeed: string; // used to generate a picsum image
+  posterUrl: string; // local path e.g. "/images/movies/trend-1.jpg"
   year: number;
-  rating: string; // e.g. "16+"
+  rating: string;
   duration: string;
   description: string;
   genre: string[];
