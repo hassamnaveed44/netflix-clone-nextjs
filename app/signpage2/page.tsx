@@ -1,29 +1,27 @@
 "use client";
 import Link from "next/link";
 
-import { useState } from "react";
 
-export default function SignupStep1() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
+
+import { useRouter } from "next/navigation";
+
+export default function SignupStep2() {
+  const router = useRouter();
 
   const handleNext = () => {
-    if (!email.trim()) {
-      setError("Please enter a valid email.");
-      return;
-    }
-    if (!password.trim() || password.length < 4) {
-      setError("Your password must contain at least 4 characters.");
-      return;
-    }
-    setError("");
-    // Replace with real navigation / API call, e.g.:
-    // router.push("/signup/step-2");
-    console.log("Proceeding to next step with:", { email, password });
-    alert("Looks good! Proceeding to step 2...");
+    // Navigate to the next step in the flow
+    router.push("/signup/step-3");
   };
+
+  const handleSignOut = () => {
+    router.push("/signin");
+  };
+
+  const benefits = [
+    "No commitments, cancel anytime.",
+    "Everything on Netflix for one low price.",
+    "No ads and no extra fees. Ever.",
+  ];
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -32,58 +30,64 @@ export default function SignupStep1() {
         <span className="text-2xl font-bold tracking-tight text-red-600 md:text-3xl">
           NETFLIX
         </span>
-        <a href="#" className="text-sm font-medium text-black hover:underline">
-          Sign In
-        </a>
+        <button
+          type="button"
+          onClick={handleSignOut}
+          className="text-sm font-medium text-black hover:underline"
+        >
+          Sign Out
+        </button>
       </header>
 
       {/* Main content */}
-      <main className="flex flex-1 justify-center px-6 py-10 md:px-0 md:py-16">
+      <main className="flex flex-1 justify-center px-6 py-10 text-center md:px-0 md:py-16">
         <div className="w-full max-w-md">
-          <p className="text-sm text-gray-500">Step 1 of 3</p>
-          <h1 className="mt-2 text-2xl font-medium text-gray-900 md:text-3xl">
-            Create a password to start your membership
-          </h1>
-          <p className="mt-3 text-base text-gray-700">
-            Just a few more steps and you&apos;re done!
-            <br />
-            We hate paperwork, too.
-          </p>
-
-          {/* Email field */}
-          <div className="mt-6 text-black">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email address"
-              className="w-full rounded-sm border border-gray-300 px-4 py-3 text-sm focus:border-gray-500 focus:outline-none"
-            />
-          </div>
-
-          {/* Password field */}
-          <div className="relative mt-4 text-black">
-            <input
-              type={showPassword ? "text" : "password"}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Add a password"
-              className="w-full rounded-sm border border-gray-300 px-4 py-3 pr-12 text-sm focus:border-gray-500 focus:outline-none"
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-gray-500 hover:text-black"
-              aria-label={showPassword ? "Hide password" : "Show password"}
+          {/* Check icon */}
+          <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full border-2 border-red-600">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="h-5 w-5 text-red-600"
             >
-              {showPassword ? "Hide" : "Show"}
-            </button>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
           </div>
 
-          {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
+          <p className="text-sm text-gray-500">Step 2 of 3</p>
+          <h1 className="mt-1 text-2xl font-medium text-gray-900 md:text-3xl">
+            Choose your plan.
+          </h1>
+
+          {/* Benefits list */}
+          <ul className="mt-4 space-y-2 text-left inline-block">
+            {benefits.map((benefit) => (
+              <li key={benefit} className="flex items-start gap-2 text-sm text-gray-700">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="mt-0.5 h-4 w-4 flex-shrink-0 text-red-600"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                {benefit}
+              </li>
+            ))}
+          </ul>
 
           {/* Next button */}
-          <Link href="/signpage2">
+          <Link href="/signinpage3">
             <button className="mt-8 w-full rounded-sm bg-red-600 py-3 text-base font-medium text-white transition hover:bg-red-700">
               Next
             </button>
