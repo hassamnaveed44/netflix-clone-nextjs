@@ -1,23 +1,21 @@
-"use client";
-import { useRouter } from "next/navigation";
+// 1. Import 'use' from 'react'
+import { use } from "react";
 
-export default function WatchPage({ params }: { params: { id: string } }) {
-  const router = useRouter();
+// 2. Update your page function to accept params as a Promise
+export default function WatchPage({ params }: { params: Promise<{ id: string }> }) {
+  
+  // 3. Unwrap the params using React.use()
+  const resolvedParams = use(params);
+  
+  // 4. Now you can safely access the ID
+  const { id } = resolvedParams;
+
   return (
-    <div className="h-screen w-full bg-black flex flex-col">
-      <button
-        onClick={() => router.back()}
-        className="absolute top-6 left-6 z-10 text-white text-2xl bg-black/50 rounded-full w-10 h-10"
-      >
-        ←
-      </button>
-      <div className="flex-1 flex items-center justify-center">
-        <div className="text-center">
-          <p className="text-gray-400 mb-2">Now playing</p>
-          <h1 className="text-3xl font-bold">Video ID: {params.id}</h1>
-          <p className="text-gray-500 mt-4">(Placeholder player — no real video source)</p>
-        </div>
-      </div>
+    <div className="text-center">
+      <p className="text-gray-400 mb-2">Now playing</p>
+      {/* Now this will work without the error */}
+      <h1 className="text-3xl font-bold">Video ID: {id}</h1>
+      <p className="text-gray-500 mt-4">(Placeholder player - no real video source)</p>
     </div>
   );
 }

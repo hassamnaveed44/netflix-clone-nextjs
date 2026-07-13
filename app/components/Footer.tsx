@@ -1,53 +1,40 @@
 import React from 'react';
-
-const footerLinks = [
-  { label: "FAQ", href: "#" },
-  { label: "Help Centre", href: "#" },
-  { label: "Account", href: "#" },
-  { label: "Media Centre", href: "#" },
-  { label: "Investor Relations", href: "#" },
-  { label: "Jobs", href: "#" },
-  { label: "Ways to Watch", href: "#" },
-  { label: "Terms of Use", href: "#" },
-  { label: "Privacy", href: "#" },
-  { label: "Cookie Preferences", href: "#" },
-  { label: "Corporate Information", href: "#" },
-  { label: "Contact Us", href: "#" },
-  { label: "Speed Test", href: "#" },
-  { label: "Legal Notices", href: "#" },
-  { label: "Only on Netflix", href: "#" },
-];
+import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 export default function Footer() {
+  const column1 = ["Audio and Subtitles", "Media Centre", "Privacy", "Contact Us"];
+  const column2 = ["Audio Description", "Investor Relations", "Legal Notices"];
+  const column3 = ["Help Centre", "Jobs", "Cookie Preferences"];
+  const column4 = ["Gift Cards", "Terms of Use", "Corporate Information"];
+
   return (
-    <footer className="bg-black py-12 md:py-16 px-6 md:px-48 text-[#757575] text-sm">
+    <footer className="bg-black text-[#757575] py-8 px-6 md:px-48 text-sm">
       <div className="max-w-5xl mx-auto">
-        {/* Contact info */}
-        <p className="mb-6">Questions? Call 000-800-1843</p>
+        {/* Social Icons */}
+        <div className="flex gap-6 mb-6 text-white text-2xl">
+          <FaFacebookF className="cursor-pointer" />
+          <FaInstagram className="cursor-pointer" />
+          <FaTwitter className="cursor-pointer" />
+          <FaYoutube className="cursor-pointer" />
+        </div>
 
         {/* Links Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-          {footerLinks.map((link, index) => (
-            <a 
-              key={index} 
-              href={link.href} 
-              className="hover:underline"
-            >
-              {link.label}
-            </a>
+          {[column1, column2, column3, column4].map((col, idx) => (
+            <div key={idx} className="flex flex-col gap-3">
+              {col.map((link) => (
+                <a key={link} href="#" className="hover:underline">
+                  {link}
+                </a>
+              ))}
+            </div>
           ))}
         </div>
 
-        {/* Language Selector */}
-        <div className="mb-6">
-          <button className="flex items-center gap-2 px-3 py-1 border border-[#757575] bg-black text-white rounded hover:bg-[#1a1a1a]">
-            <span>🌐 English</span>
-            <span>▼</span>
-          </button>
-        </div>
-
-        {/* Bottom Text */}
-        <p>Netflix India</p>
+        {/* Service Code Button */}
+        <button className="border border-[#757575] text-[#757575] px-3 py-1 hover:text-white hover:border-white transition-colors">
+          SERVICE CODE
+        </button>
       </div>
     </footer>
   );

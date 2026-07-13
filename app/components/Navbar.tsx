@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Search, Bell } from "lucide-react";
 
 // Nav links shown on desktop (inline) and mobile (dropdown) — browse pages only
 const links = [
@@ -101,6 +101,13 @@ export default function Navbar() {
 
       <div className="flex items-center gap-4">
         {/* Search and notification icons only show from sm upward to save space on very small screens */}
+        <button aria-label="Search" className="hidden sm:block text-white hover:text-gray-300">
+          <Search size={20} />
+        </button>
+
+        <button aria-label="Notifications" className="hidden sm:block text-white hover:text-gray-300">
+          <Bell size={20} />
+        </button>
 
         <Link href="/profiles" className="w-8 h-8 rounded bg-gradient-to-br from-purple-500 to-pink-500" />
 
