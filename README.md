@@ -54,6 +54,19 @@ Visit http://localhost:3000
 - Static assets served from `/public`
 - Tailwind utility-first styling, custom theme colors (`netflixRed`, `netflixBlack`, `netflixDark`), responsive utilities, gradients for hero overlays
 
+## Major UI Issues Fixed
+
+Fixed navbar spacing
+Improved hero alignment
+Replaced repeated JSX with reusable MovieCard component
+Fixed mobile overflow
+Added hover effects
+Improved typography consistency
+Improved button visibility
+Used Flexbox/Grid layouts
+Optimized images with next/image
+Add missing pages
+
 ## Screenshots
 
 # Destop Screenshots
