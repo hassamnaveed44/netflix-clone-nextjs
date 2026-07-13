@@ -8,7 +8,7 @@ export default function NewAndPopularPage() {
   const featured = newAndPopular[0];
   return (
     <div>
-      <div className="relative h-[60vh] w-full">
+      <div className="relative h-[50vh] w-full m-5">
         <Image src={featured.posterUrl} alt={featured.title} fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-t from-netflixBlack via-black/20 to-transparent" />
         <div className="absolute bottom-12 left-4 md:left-12 max-w-lg">

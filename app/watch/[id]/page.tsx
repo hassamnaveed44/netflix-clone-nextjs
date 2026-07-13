@@ -1,21 +1,19 @@
-// 1. Import 'use' from 'react'
+"use client"; // Add this if you add playback logic like play/pause
 import { use } from "react";
 
-// 2. Update your page function to accept params as a Promise
 export default function WatchPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   
-  // 3. Unwrap the params using React.use()
-  const resolvedParams = use(params);
-  
-  // 4. Now you can safely access the ID
-  const { id } = resolvedParams;
-
   return (
-    <div className="text-center">
-      <p className="text-gray-400 mb-2">Now playing</p>
-      {/* Now this will work without the error */}
-      <h1 className="text-3xl font-bold">Video ID: {id}</h1>
-      <p className="text-gray-500 mt-4">(Placeholder player - no real video source)</p>
+    <div className="w-screen h-screen bg-black flex flex-col items-center justify-center text-white">
+      <h1 className="text-xl font-bold mb-4">Now playing: {id}</h1>
+      
+      {/* Example of how you would use the ID to set the source */}
+      <video 
+        controls 
+        className="w-full max-w-4xl"
+        src={`/videos/vdeo2.mp4`} 
+      />
     </div>
   );
 }
