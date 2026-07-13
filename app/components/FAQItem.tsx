@@ -1,22 +1,41 @@
 "use client";
 import { useState } from "react";
-import { Plus, X } from "lucide-react";
+import { Plus } from "lucide-react";
 
-export default function FAQItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false);
+interface FAQItemProps {
+  question: string;
+  answer: string;
+}
+
+export default function FAQItem({ question, answer }: FAQItemProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="border-b-2 border-[#2d2d2d]">
+    <div className="bg-[#2d2d2d] hover:bg-[#414141] transition-colors duration-200 rounded overflow-hidden">
       <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex justify-between items-center bg-[#2d2d2d] hover:bg-[#414141]
-                   text-lg md:text-2xl py-4 px-4 md:px-6 text-left"
+        className="w-full flex justify-between items-center p-6 text-white text-lg md:text-2xl text-left font-normal"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
       >
         {question}
-        {open ? <X size={24} /> : <Plus size={24} />}
+        <Plus 
+          size={30} 
+          className={`transform transition-transform duration-300 ease-in-out flex-shrink-0 ml-4 ${isOpen ? "rotate-45" : ""}`} 
+        />
       </button>
-      {open && (
-        <div className="bg-[#2d2d2d] px-4 md:px-6 pb-6 text-xl">{answer}</div>
-      )}
+
+      {/* Smooth height transition wrapper */}
+      <div 
+        className={`grid transition-all duration-300 ease-in-out ${
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p className="p-6 pt-0 text-white text-lg md:text-xl leading-relaxed">
+            {answer}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
