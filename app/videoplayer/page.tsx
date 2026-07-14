@@ -35,13 +35,16 @@ export default function VideoPlayerPage() {
       </button>
 
       {/* Video Element */}
-      <video
+      <div className="w-30 h-30">
+         <video
         ref={videoRef}
         className="w-full h-10 object-contain"
         src="/videos/vdeo2.mp4"
         onClick={togglePlay}
       />
 
+      </div>
+     
       {/* Bottom Control Overlay - Compact version */}
       <div className="absolute bottom-0 w-full px-4 pb-3 pt-8 bg-gradient-to-t from-black/80 to-transparent flex flex-col gap-1 z-40">
         
